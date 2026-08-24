@@ -1,0 +1,19 @@
+.env
+credentials.json
+token.json
+output/
+__pycache__/
+*.pyc
+.venv/
+data/feedback_history.jsonl
+
+# Dados pessoais reais — o repositório leva só os .example (modelo, sem dados sensíveis).
+data/profile.json
+data/preferences.json
+
+# Documentos pessoais / arquivos de sistema que não têm nada a ver com o projeto.
+# (padrão amplo de propósito — problema de encoding no nome acentuado fez o
+# nome exato não bater; isso aqui não depende de acentuação)
+data/RG*
+data/desktop.ini
+*.pdf

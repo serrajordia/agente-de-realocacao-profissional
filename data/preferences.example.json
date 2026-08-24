@@ -1,0 +1,36 @@
+{
+  "_comentario": "Revise estes campos com o João antes da primeira execução real. Preenchidos com base no perfil e no que foi confirmado na conversa; cidade/áreas são um ponto de partida razoável, não uma decisão final.",
+
+  "niveis_alvo": [
+    "Gerente (com gestão)",
+    "Especialista II (sem gestão)"
+  ],
+
+  "modalidade_preferida": ["remoto", "híbrido"],
+  "modalidade_aceita_presencial": true,
+  "presencial_reduz_adequacao": true,
+
+  "cidade_base": "São Paulo, SP",
+  "cidades_aceitas": ["São Paulo", "Remoto (qualquer cidade)"],
+
+  "areas_e_palavras_chave": [
+    "risco de crédito", "credit risk", "validação de modelos", "model validation",
+    "model risk management", "gestão de risco de modelos", "IRB", "IRB avançado",
+    "PD LGD EAD", "Basileia", "regulatório bancário", "compliance regulatório",
+    "ciência de dados", "data science", "machine learning", "analytics",
+    "risco de mercado", "risco operacional", "fraude", "pricing", "GenAI",
+    "agentes de IA", "inteligência artificial generativa"
+  ],
+
+  "setores_preferidos": [
+    "Bancos e instituições financeiras", "Fintechs", "Consultorias de risco/dados",
+    "Reguladores e órgãos de supervisão", "Big 4 / auditoria e consultoria regulatória"
+  ],
+
+  "salario_minimo_mensal_brl": null,
+  "empresas_evitar": [],
+
+  "faixa_senioridade_min_anos_experiencia": 15,
+
+  "vagas_para_refinar_com_claude": 20
+}

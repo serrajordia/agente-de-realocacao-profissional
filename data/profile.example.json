@@ -1,0 +1,427 @@
+{
+  "personal": {
+    "name": "João Fernando Serrajordia Rocha de Mello",
+    "headline": "Líder Sênior em Gestão de Risco de Modelos | Validação de Modelos | Risco de Crédito | IRB Avançado | Agentes de IA Generativa",
+    "location": "São Paulo, SP, Brasil",
+    "phone": "",
+    "email": "juka42@gmail.com",
+    "linkedin": "https://www.linkedin.com/in/joao-serrajordia/",
+    "github": "https://github.com/juka42"
+  },
+  "summary": "Líder sênior em Risco e Validação de Modelos, com mais de 20 anos de experiência no setor bancário, modelagem de risco de crédito, validação independente de modelos e analytics regulatório no Itaú Unibanco, Santander Brasil e Banco BV. Construiu e escalou a área de validação independente de modelos do Banco BV até um framework institucional de gestão de risco de modelos — iniciativa pioneira no Brasil à época, cobrindo modelos de crédito, mercado, operacional, financeiro e CRM — liderando uma equipe de até 11 profissionais. Atualmente engajado em uma iniciativa de aprovação do IRB Avançado no Itaú Unibanco, cobrindo parâmetros de risco (PD, LGD, EAD) e sistemas de rating interno, em conformidade com as diretrizes do Banco Central do Brasil e padrões internacionais (BIS, EBA). Combina profundo conhecimento em risco de crédito e governança de modelos com experiência prática em desenvolvimento de agentes de IA/GenAI (Python, Microsoft 365/Copilot, Claude/Cowork) e condução de treinamentos internos. Mestre em Estatística pela USP; professor de pós-graduação; fundador de consultoria independente em ciência de dados e modelagem de crédito.",
+  "target_levels": [
+    "Gerente (com gestão)",
+    "Especialista II (sem gestão)"
+  ],
+  "skills": {
+    "risco_e_credito": [
+      "Gestão de Risco de Modelos",
+      "Validação Independente de Modelos",
+      "Princípios SR 11-7",
+      "Solidez Conceitual",
+      "Modelos de Risco de Crédito (PD/LGD/EAD)",
+      "IRB Avançado",
+      "Sistemas de Rating Interno",
+      "Modelos de Risco de Mercado e Operacional",
+      "Modelos de Fraude, Marketing e Pricing",
+      "Governança de Modelos",
+      "Análise de Sobrevivência e Riscos Competitivos",
+      "IFRS 9 / Expected Loss",
+      "Resolução CMN 4.966",
+      "Resolução BCB 303",
+      "Documentação Regulatória"
+    ],
+    "tecnico": [
+      "Modelagem Estatística",
+      "Machine Learning",
+      "Desenvolvimento de Agentes de IA/GenAI",
+      "Python",
+      "R",
+      "SQL",
+      "Microsoft 365/Copilot",
+      "Claude/Cowork"
+    ],
+    "lideranca": [
+      "Liderança de equipes técnicas (até 11 pessoas)",
+      "Desenvolvimento de pessoas",
+      "Interlocução com reguladores e auditoria",
+      "Gestão de fornecedores"
+    ]
+  },
+  "experiences": [
+    {
+      "company": "Itaú Unibanco",
+      "role": "Especialista II (nível Gerente), Validação de Modelos",
+      "level": "Especialista II (sem gestão)",
+      "start": "2024-10",
+      "end": "presente",
+      "location": "São Paulo, SP",
+      "modality": "híbrido",
+      "management": false,
+      "bullets": [
+        "Validação independente de modelos de risco de crédito atacado e varejo e modelos regulatórios dentro de um programa de aprovação do IRB Avançado (PD, LGD, EAD, sistemas de classificação e conceitos relacionados).",
+        "Desenvolvimento técnico da documentação de candidatura ao IRB Avançado; implementação dos requisitos regulatórios da Resolução BCB 303.",
+        "Interface técnica com o regulador, auditoria e áreas de governança de modelos; fortalecimento dos frameworks de gestão de risco de modelos por meio de challenge independente e avaliação de robustez metodológica.",
+        "Desenvolvo agentes de IA e skills em Microsoft 365/Copilot para apoiar fluxos de validação.",
+        "Contribuí para o desenvolvimento da nova versão da metodologia de validação de parâmetros IRB, assistida por agentes de IA generativa, incluindo novos testes qualitativos e quantitativos alinhados a diretrizes do Banco Central do Brasil e a padrões internacionais (BIS, EBA)."
+      ],
+      "skills_used": [
+        "Validação de Modelos",
+        "IRB Avançado",
+        "PD/LGD/EAD",
+        "Python",
+        "IA Generativa",
+        "Regulatório"
+      ]
+    },
+    {
+      "company": "Mestre dos Dados (consultoria própria)",
+      "role": "Proprietário / Fundador",
+      "level": "Especialista II (sem gestão)",
+      "start": "2021-03",
+      "end": "presente",
+      "location": "São Paulo, SP",
+      "modality": "remoto",
+      "management": false,
+      "bullets": [
+        "Condução de treinamentos in company de programação em Python orientada a desenvolvimento de modelos de risco de crédito.",
+        "Consultoria em modelagem de parâmetros de risco de crédito para atendimento à Resolução CMN 4.966 (novo modelo de perda esperada de crédito do Brasil, em vigor desde janeiro de 2025)."
+      ],
+      "skills_used": [
+        "Python",
+        "Modelagem de Crédito",
+        "Treinamento",
+        "Consultoria"
+      ]
+    },
+    {
+      "company": "ESPM",
+      "role": "Professor",
+      "level": "Especialista II (sem gestão)",
+      "start": "2021-02",
+      "end": "2024-10",
+      "location": "São Paulo, SP",
+      "modality": "presencial",
+      "management": false,
+      "bullets": [
+        "Aulas de graduação em finanças, ciência de dados, pesquisa operacional, estatística e programação em Python."
+      ],
+      "skills_used": [
+        "Docência",
+        "Finanças",
+        "Ciência de Dados",
+        "Python",
+        "Estatística"
+      ]
+    },
+    {
+      "company": "Banco BV",
+      "role": "Especialista em Ciência de Dados",
+      "level": "Especialista II (sem gestão)",
+      "start": "2020-02",
+      "end": "2020-09",
+      "location": "São Paulo, SP",
+      "modality": "presencial",
+      "management": false,
+      "bullets": [
+        "Suporte técnico a equipes parceiras, elevando a qualidade e efetividade de projetos analíticos por meio do desenvolvimento de novas metodologias, customização de modelos existentes, revisão metodológica interna e controle de qualidade aplicado à análise de risco de crédito."
+      ],
+      "skills_used": [
+        "Modelos de Crédito",
+        "Metodologia",
+        "Controle de Qualidade"
+      ]
+    },
+    {
+      "company": "Banco BV",
+      "role": "Gerente de Ciência de Dados, Crédito",
+      "level": "Gerente (com gestão)",
+      "start": "2017-08",
+      "end": "2020-02",
+      "location": "São Paulo, SP",
+      "modality": "presencial",
+      "management": true,
+      "bullets": [
+        "Liderei equipes de ciência de dados no apoio ao desenvolvimento de modelos de risco de crédito e otimização de negócio; supervisionei metodologia, relacionamento com fornecedores e controle de qualidade em projetos analíticos.",
+        "Implementei um modelo de crédito inovador baseado em análise de sobrevivência em tempo discreto com riscos competitivos — uma das primeiras aplicações práticas dessa técnica no mercado brasileiro — levando minha pesquisa de mestrado à produção com excelência técnica."
+      ],
+      "skills_used": [
+        "Gestão de Equipe",
+        "Modelos de Crédito",
+        "Análise de Sobrevivência",
+        "Liderança"
+      ]
+    },
+    {
+      "company": "Banco BV",
+      "role": "Gerente de Validação de Modelos",
+      "level": "Gerente (com gestão)",
+      "start": "2015-08",
+      "end": "2017-08",
+      "location": "São Paulo, SP",
+      "modality": "presencial",
+      "management": true,
+      "bullets": [
+        "Construí e escalei do zero a função de validação independente de modelos do banco, cobrindo modelos de crédito, mercado, operacional, financeiro e CRM; evoluí para um framework institucional de gestão de risco de modelos — iniciativa pioneira no Brasil.",
+        "Promovido de Supervisor (2014) a Gerente (2015); liderei equipe de até 11 profissionais; forneci orientação técnica aprofundada aos analistas, com destaque para o modelo de capital econômico de risco de crédito."
+      ],
+      "skills_used": [
+        "Validação de Modelos",
+        "Gestão de Equipe",
+        "Governança",
+        "Capital Econômico"
+      ]
+    },
+    {
+      "company": "Banco BV",
+      "role": "Supervisor de Validação de Modelos",
+      "level": "Supervisor",
+      "start": "2014-01",
+      "end": "2015-07",
+      "location": "São Paulo, SP",
+      "modality": "presencial",
+      "management": true,
+      "bullets": [
+        "Liderei um time altamente especializado na validação técnica de modelos de risco de crédito, mercado, operacional, financeiros e outros, agregando valor ao negócio via controle de risco de modelos e identificação de oportunidades de melhoria."
+      ],
+      "skills_used": [
+        "Validação de Modelos",
+        "Gestão de Equipe",
+        "Risco Operacional"
+      ]
+    },
+    {
+      "company": "Banco BV",
+      "role": "Supervisor de Risco e Rentabilidade",
+      "level": "Supervisor",
+      "start": "2012-12",
+      "end": "2014-01",
+      "location": "São Paulo, SP",
+      "modality": "presencial",
+      "management": true,
+      "bullets": [
+        "Liderei equipe de análise de risco e rentabilidade de modelos de crédito, incluindo monitoramento de performance dos modelos estatísticos relacionados.",
+        "Introduzi uma visão de rentabilidade no desenvolvimento de políticas de crédito e pricing, trazendo considerações de retorno ajustado ao risco para decisões antes orientadas principalmente por métricas de risco."
+      ],
+      "skills_used": [
+        "Risco de Crédito",
+        "Rentabilidade",
+        "Pricing",
+        "Gestão de Equipe"
+      ]
+    },
+    {
+      "company": "Santander Brasil",
+      "role": "Coordenador de Validação de Modelos",
+      "level": "Coordenador",
+      "start": "2011",
+      "end": "2012",
+      "location": "São Paulo, SP",
+      "modality": "presencial",
+      "management": true,
+      "bullets": [
+        "Coordenei a validação independente de modelos de risco de crédito em processos de candidatura regulatória em Basileia II no Brasil, Chile e México; avaliei metodologia, performance e alinhamento regulatório de frameworks de IRB."
+      ],
+      "skills_used": [
+        "Validação de Modelos",
+        "Basileia II",
+        "IRB",
+        "Regulatório"
+      ]
+    },
+    {
+      "company": "Itaú Unibanco",
+      "role": "Coordenador de Modelagem / Consultor Estatístico, Corporate & Middle Market",
+      "level": "Coordenador",
+      "start": "2006",
+      "end": "2011",
+      "location": "São Paulo, SP",
+      "modality": "presencial",
+      "management": true,
+      "bullets": [
+        "Liderei o desenvolvimento de modelos de risco de crédito para clientes corporate e middle-market, incluindo iniciativas pioneiras de LGD e suporte quantitativo a decisões de concessão de crédito.",
+        "Contribuí para uma iniciativa pioneira no desenvolvimento de modelos de parâmetros de risco IRB (PD, EAD e LGD) antes do processo formal de candidatura do Brasil."
+      ],
+      "skills_used": [
+        "Modelos de Crédito",
+        "LGD",
+        "PD",
+        "EAD",
+        "Corporate/Middle Market"
+      ]
+    },
+    {
+      "company": "Telefônica",
+      "role": "Analista de Modelagem",
+      "level": "Analista",
+      "start": "2004-01",
+      "end": "2005-12",
+      "location": "São Paulo, SP",
+      "modality": "presencial",
+      "management": false,
+      "bullets": [
+        "Desenvolvi modelos de crédito, propensão, segmentação, churn e próxima melhor oferta, bem como análises associadas."
+      ],
+      "skills_used": [
+        "Modelagem Estatística",
+        "Crédito",
+        "Telecom"
+      ]
+    },
+    {
+      "company": "SAS",
+      "role": "Estagiário",
+      "level": "Estágio",
+      "start": "2001-04",
+      "end": "2002-04",
+      "location": "São Paulo, SP",
+      "modality": "presencial",
+      "management": false,
+      "bullets": [
+        "Análises estatísticas associadas a atividades de pré-vendas e pós-vendas das soluções da empresa."
+      ],
+      "skills_used": [
+        "Estatística"
+      ]
+    }
+  ],
+  "teaching": [
+    {
+      "institution": "FGV / FGV-EESP",
+      "role": "Professor convidado",
+      "period": "2018–presente",
+      "topics": "Python para Análise de Dados, métodos matriciais, clusterização, econometria, Desenvolvimento de Agentes de IA em Python (autor do curso, Master Lato Sensu); Mestrado Profissional em Economia e MBA em Business Analytics e Big Data"
+    },
+    {
+      "institution": "PECEGE / USP-ESALQ",
+      "role": "Professor convidado",
+      "period": "2019/2022–presente",
+      "topics": "Machine Learning (Árvores, Redes Neurais e Ensemble Models)"
+    },
+    {
+      "institution": "ESPM",
+      "role": "Professor",
+      "period": "2022–2024",
+      "topics": "Finanças, Ciência de Dados, Pesquisa Operacional, Estatística, Programação, Análise de Decisões"
+    },
+    {
+      "institution": "EBAC",
+      "role": "Professor / Autor de currículo",
+      "period": "2021–2024",
+      "topics": "Currículo completo de Ciência de Dados, do introdutório ao avançado (Python, visualização de dados, machine learning, fundamentos matemáticos)"
+    },
+    {
+      "institution": "UDF Centro Universitário",
+      "role": "Professor",
+      "period": "2021–2022",
+      "topics": "Estatística avançada em R: componentes principais, análise fatorial, equações estruturais, correspondência, regressão múltipla"
+    },
+    {
+      "institution": "Universidade Cruzeiro do Sul",
+      "role": "Professor convidado",
+      "period": "2014–2015",
+      "topics": "Estatística avançada em R (mesmo escopo do UDF)"
+    }
+  ],
+  "projects": [
+    {
+      "name": "Modelo de crédito com análise de sobrevivência em tempo discreto e riscos competitivos",
+      "description": "Levei pesquisa de mestrado à produção no Banco BV, uma das primeiras aplicações práticas dessa técnica no mercado de crédito brasileiro; apresentado no Credit Research Centre (CRC) International Conference, Edimburgo.",
+      "skills_used": [
+        "Análise de Sobrevivência",
+        "Modelos de Crédito",
+        "Pesquisa Acadêmica"
+      ]
+    },
+    {
+      "name": "Agentes de IA generativa para validação de modelos",
+      "description": "Desenvolvimento de agentes de IA e skills em Microsoft 365/Copilot e Claude/Cowork para apoiar fluxos de validação de modelos regulatórios no Itaú Unibanco.",
+      "skills_used": [
+        "IA Generativa",
+        "Python",
+        "Automação",
+        "Claude"
+      ]
+    },
+    {
+      "name": "Framework de Gestão de Risco de Modelos do Banco BV",
+      "description": "Construção e escala, do zero, da função de validação independente de modelos até um framework institucional de gestão de risco de modelos — iniciativa pioneira no Brasil à época.",
+      "skills_used": [
+        "Governança de Modelos",
+        "Liderança",
+        "Model Risk Management"
+      ]
+    }
+  ],
+  "publications": [
+    {
+      "title": "A model of credit loss and its use in decision of spread",
+      "author": "João Serrajordia",
+      "detail": "Baseado na pesquisa de mestrado (USP); apresentado no Credit Research Centre (CRC) International Conference, Edimburgo."
+    }
+  ],
+  "education": [
+    {
+      "institution": "Universidade de São Paulo (USP)",
+      "degree": "Mestrado em Estatística",
+      "detail": "Dissertação: análise de sobrevivência em tempo discreto aplicada à perda esperada de crédito",
+      "period": "2004–2009"
+    },
+    {
+      "institution": "Universidade de São Paulo (USP)",
+      "degree": "Bacharelado em Estatística",
+      "detail": "",
+      "period": "1997–2003"
+    }
+  ],
+  "certifications": [
+    {
+      "name": "AI Programming with Python (nanodegree)",
+      "issuer": "Udacity",
+      "year": "2020"
+    },
+    {
+      "name": "Python para Data Science: Funções, Pacotes e Pandas Básico",
+      "issuer": "Alura",
+      "year": ""
+    },
+    {
+      "name": "Pandas: formatos diferentes de entrada e saída (IO)",
+      "issuer": "Alura",
+      "year": ""
+    },
+    {
+      "name": "Exploratory Data Analysis",
+      "issuer": "n/d",
+      "year": ""
+    },
+    {
+      "name": "Machine Learning: Introdução a Classificação com Sklearn",
+      "issuer": "Alura",
+      "year": ""
+    },
+    {
+      "name": "Python para Data Science: Introdução à Linguagem e Numpy",
+      "issuer": "Alura",
+      "year": ""
+    }
+  ],
+  "languages": [
+    {
+      "language": "Português",
+      "level": "Nativo"
+    },
+    {
+      "language": "Inglês",
+      "level": "C1 – Proficiência Profissional Plena"
+    },
+    {
+      "language": "Espanhol",
+      "level": "Proficiência Profissional Avançada"
+    },
+    {
+      "language": "Francês",
+      "level": "Elementar"
+    }
+  ]
+}
