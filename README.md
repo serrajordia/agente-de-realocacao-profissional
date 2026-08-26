@@ -36,10 +36,10 @@ data/profile.example.json      modelo do banco de dados único (copie para profi
 data/preferences.example.json  modelo dos critérios de busca (copie para preferences.json e edite)
 src/search_adzuna.py      busca vagas na Adzuna API
 src/classify.py           classifica cada vaga (adequação/modalidade/cidade/nível)
-src/summarize.py          monta o resumo executivo + CSV completo
+src/summarize.py          monta o resumo executivo + planilha (XLSX) completa
 src/drive.py              upload dos resultados para o Google Drive
 src/mailer.py             envio do e-mail diário (SMTP)
-src/collect_feedback.py   acumula o feedback que você preenche nos CSVs (data/feedback_history.jsonl)
+src/collect_feedback.py   acumula o feedback que você preenche nas planilhas (data/feedback_history.jsonl)
 src/ssl_fix.py            faz o Python confiar no antivírus (ex.: Norton) que inspeciona HTTPS
 src/cv/                   geração de CV em PDF customizado por vaga (Typst)
 main.py                   orquestrador do fluxo diário
@@ -65,7 +65,7 @@ Isso reduziu o tempo de classificação de ~33 min para ~2 min no teste com
 ### Feedback (base para um classificador futuro)
 
 A lista completa tem uma coluna `feedback` em branco. **Importante**: o
-`collect_feedback.py` só lê o CSV local (`Desktop\Vagas\<data>\vagas.csv`)
+`collect_feedback.py` só lê o XLSX local (`Desktop\Vagas\<data>\vagas.xlsx`)
 — preencher a coluna na planilha do Google Sheets (a que vem linkada no
 e-mail/Drive) não é capturado automaticamente ainda. Preencha com `bom` ou
 `ruim` nas vagas que você já revisou no **arquivo local** (pode deixar o
@@ -83,14 +83,14 @@ aprenda seu gosto de verdade e reduza ainda mais a dependência do Claude.
 ## Onde encontrar os resultados
 
 Toda execução salva uma cópia local fácil de achar em `Desktop\Vagas\<data>\`
-(resumo.md e vagas.csv) e os CVs gerados em `Desktop\Vagas\CVs\`. A cópia
+(resumo.md e vagas.xlsx) e os CVs gerados em `Desktop\Vagas\CVs\`. A cópia
 "técnica" completa (incluindo logs) fica em `output/` dentro do projeto.
 
 Quando o Drive está configurado, a lista completa sobe como uma **planilha
-Google Sheets** (não um .csv) na pasta `Vagas/<data>/` do seu Drive — dá pra
+Google Sheets** (a cópia local é .xlsx) na pasta `Vagas/<data>/` do seu Drive — dá pra
 abrir, filtrar e editar direto no navegador, inclusive a coluna `feedback`.
-O e-mail diário linka essa planilha em vez de anexar um CSV (só volta a
-anexar CSV se o upload no Drive falhar naquele dia).
+O e-mail diário linka essa planilha em vez de anexar um arquivo (só volta a
+anexar o XLSX se o upload no Drive falhar naquele dia).
 
 ## Rodar manualmente
 

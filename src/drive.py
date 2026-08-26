@@ -80,13 +80,26 @@ def upload_text_file(
     return uploaded.get("webViewLink", uploaded.get("id"))
 
 
-def upload_daily_results(markdown_summary: str, csv_content: str, run_date_str: str) -> dict:
+def upload_binary_file(
+    service, name: str, content: bytes, mime_type: str, parent_id: str, target_mime_type: str | None = None
+) -> str:
+    from googleapiclient.http import MediaIoBaseUpload
+
+    media = MediaIoBaseUpload(io.BytesIO(content), mimetype=mime_type)
+    metadata = {"name": name, "parents": [parent_id]}
+    if target_mime_type:
+        metadata["mimeType"] = target_mime_type
+    uploaded = service.files().create(body=metadata, media_body=media, fields="id, webViewLink").execute()
+    return uploaded.get("webViewLink", uploaded.get("id"))
+
+
+def upload_daily_results(markdown_summary: str, xlsx_content: bytes, run_date_str: str) -> dict:
     """Cria a subpasta Vagas/<data> e sobe o resumo (md) e a lista completa.
 
     A lista completa sobe como uma planilha Google Sheets nativa (não um
-    arquivo .csv) — a API do Drive converte automaticamente o conteúdo CSV
-    enviado quando o mimeType de destino é de planilha. Isso permite editar
-    a coluna "feedback" direto no navegador, sem precisar baixar nada.
+    arquivo .xlsx) — a API do Drive converte automaticamente o XLSX enviado
+    quando o mimeType de destino é de planilha. Isso permite editar a coluna
+    "feedback" direto no navegador, sem precisar baixar nada.
 
     Retorna dict com os links dos arquivos criados. Se as credenciais não
     estiverem configuradas, levanta FileNotFoundError (o chamador decide
@@ -100,8 +113,9 @@ def upload_daily_results(markdown_summary: str, csv_content: str, run_date_str: 
     resumo_link = upload_text_file(
         service, f"resumo-{run_date_str}.md", markdown_summary, "text/markdown", day_folder_id
     )
-    planilha_link = upload_text_file(
-        service, f"vagas-{run_date_str}", csv_content, "text/csv", day_folder_id,
+    planilha_link = upload_binary_file(
+        service, f"vagas-{run_date_str}", xlsx_content,
+        "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", day_folder_id,
         target_mime_type="application/vnd.google-apps.spreadsheet",
     )
 

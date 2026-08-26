@@ -1,19 +1,18 @@
-"""Coleta o feedback preenchido manualmente nos CSVs de vagas e acumula um
-histórico local rotulado — base para, no futuro, treinar um classificador
+"""Coleta o feedback preenchido manualmente nas planilhas de vagas e acumula
+um histórico local rotulado — base para, no futuro, treinar um classificador
 no seu próprio gosto em vez de depender só da heurística/Claude (fase 2 da
 triagem de vagas; ainda não treina nada, só acumula dado).
 
 Uso:
-    python src/collect_feedback.py                    # varre Desktop\\Vagas\\*\\vagas.csv
-    python src/collect_feedback.py --csv caminho.csv   # só um arquivo específico
+    python src/collect_feedback.py                      # varre Desktop\\Vagas\\*\\vagas.xlsx
+    python src/collect_feedback.py --xlsx caminho.xlsx   # só um arquivo específico
 
-Preencha a coluna "feedback" do CSV com "bom" ou "ruim" nas vagas que você
-já revisou (deixe em branco as que não olhou) antes de rodar este script.
+Preencha a coluna "feedback" da planilha com "bom" ou "ruim" nas vagas que
+você já revisou (deixe em branco as que não olhou) antes de rodar este script.
 """
 from __future__ import annotations
 
 import argparse
-import csv
 import json
 import logging
 from pathlib import Path
@@ -43,33 +42,40 @@ def _job_key(row: dict) -> str:
     return row.get("url") or f"{row.get('title', '')}|{row.get('company', '')}|{row.get('cidade', '')}"
 
 
-def collect_from_csv(csv_path: Path, history: dict[str, dict]) -> int:
+def collect_from_xlsx(xlsx_path: Path, history: dict[str, dict]) -> int:
+    from openpyxl import load_workbook
+
+    wb = load_workbook(xlsx_path, data_only=True)
+    ws = wb.active
+    rows = ws.iter_rows(values_only=True)
+    header = [str(h or "").strip() for h in next(rows)]
+
     added = 0
-    with csv_path.open(encoding="utf-8") as f:
-        reader = csv.DictReader(f)
-        for row in reader:
-            feedback = (row.get("feedback") or "").strip().lower()
-            if feedback not in VALID_FEEDBACK:
-                continue
-            key = _job_key(row)
-            history[key] = {**row, "feedback": feedback, "chave": key, "fonte_csv": str(csv_path)}
-            added += 1
+    for values in rows:
+        row = dict(zip(header, values))
+        feedback = str(row.get("feedback") or "").strip().lower()
+        if feedback not in VALID_FEEDBACK:
+            continue
+        row = {k: ("" if v is None else v) for k, v in row.items()}
+        key = _job_key(row)
+        history[key] = {**row, "feedback": feedback, "chave": key, "fonte_xlsx": str(xlsx_path)}
+        added += 1
     return added
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Coleta feedback manual preenchido nos CSVs de vagas.")
-    parser.add_argument("--csv", type=Path, help="Um CSV específico (default: varre Desktop/Vagas/*/vagas.csv)")
+    parser = argparse.ArgumentParser(description="Coleta feedback manual preenchido nas planilhas de vagas.")
+    parser.add_argument("--xlsx", type=Path, help="Uma planilha específica (default: varre Desktop/Vagas/*/vagas.xlsx)")
     args = parser.parse_args()
 
-    csv_files = [args.csv] if args.csv else sorted(DESKTOP_RESULTS_DIR.glob("*/vagas.csv"))
-    if not csv_files:
-        print(f"Nenhum CSV de vagas encontrado em {DESKTOP_RESULTS_DIR}.")
+    xlsx_files = [args.xlsx] if args.xlsx else sorted(DESKTOP_RESULTS_DIR.glob("*/vagas.xlsx"))
+    if not xlsx_files:
+        print(f"Nenhuma planilha de vagas encontrada em {DESKTOP_RESULTS_DIR}.")
         return
 
     history = _load_history()
-    for csv_path in csv_files:
-        collect_from_csv(csv_path, history)
+    for xlsx_path in xlsx_files:
+        collect_from_xlsx(xlsx_path, history)
 
     HISTORY_FILE.parent.mkdir(parents=True, exist_ok=True)
     with HISTORY_FILE.open("w", encoding="utf-8") as f:

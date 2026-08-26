@@ -1,16 +1,21 @@
-"""Monta o resumo executivo e a lista completa (CSV) das vagas do dia."""
+"""Monta o resumo executivo e a lista completa (XLSX) das vagas do dia."""
 from __future__ import annotations
 
-import csv
 import io
 from datetime import date
 
 _ADEQUACAO_ORDEM = {"Alta": 0, "Média": 1, "Baixa": 2}
 
-CSV_COLUMNS = [
+XLSX_COLUMNS = [
     "feedback", "adequacao", "nivel", "modalidade", "cidade", "title", "company",
     "adequacao_justificativa", "url", "source", "salary_min", "salary_max",
 ]
+
+_COLUMN_WIDTHS = {
+    "feedback": 10, "adequacao": 10, "nivel": 24, "modalidade": 12, "cidade": 18,
+    "title": 42, "company": 26, "adequacao_justificativa": 55, "url": 42,
+    "source": 10, "salary_min": 12, "salary_max": 12,
+}
 
 FEEDBACK_HELP = (
     "Preencha a coluna 'feedback' com 'bom' ou 'ruim' nas vagas que você já revisou "
@@ -23,12 +28,28 @@ def _sorted_jobs(jobs: list[dict]) -> list[dict]:
     return sorted(jobs, key=lambda j: _ADEQUACAO_ORDEM.get(j.get("adequacao"), 9))
 
 
-def jobs_to_csv(jobs: list[dict]) -> str:
-    buffer = io.StringIO()
-    writer = csv.DictWriter(buffer, fieldnames=CSV_COLUMNS, extrasaction="ignore", restval="")
-    writer.writeheader()
+def jobs_to_xlsx(jobs: list[dict]) -> bytes:
+    from openpyxl import Workbook
+    from openpyxl.styles import Font
+    from openpyxl.utils import get_column_letter
+
+    wb = Workbook()
+    ws = wb.active
+    ws.title = "Vagas"
+
+    ws.append(XLSX_COLUMNS)
+    for cell in ws[1]:
+        cell.font = Font(bold=True)
+    ws.freeze_panes = "A2"
+
     for job in _sorted_jobs(jobs):
-        writer.writerow(job)
+        ws.append([job.get(col, "") for col in XLSX_COLUMNS])
+
+    for i, col in enumerate(XLSX_COLUMNS, start=1):
+        ws.column_dimensions[get_column_letter(i)].width = _COLUMN_WIDTHS.get(col, 15)
+
+    buffer = io.BytesIO()
+    wb.save(buffer)
     return buffer.getvalue()
 
 
@@ -78,7 +99,7 @@ def build_executive_summary_markdown(
             "encontradas — preencha a coluna 'feedback' direto lá."
         )
     else:
-        lines.append(f"Lista completa em anexo (CSV) com todas as {len(jobs)} vagas encontradas.")
+        lines.append(f"Lista completa na planilha vagas.xlsx (nesta mesma pasta/anexo) com todas as {len(jobs)} vagas encontradas.")
     return "\n".join(lines)
 
 
@@ -114,7 +135,7 @@ def build_executive_summary_html(
     if sheet_link:
         footer = f'<p><a href="{sheet_link}">Ver lista completa (Google Sheets)</a> com todas as {len(jobs)} vagas encontradas — preencha a coluna "feedback" direto lá.</p>'
     else:
-        footer = f"<p>Lista completa em anexo (CSV) com todas as {len(jobs)} vagas encontradas.</p>"
+        footer = f"<p>Lista completa em anexo (XLSX) com todas as {len(jobs)} vagas encontradas.</p>"
 
     return f"""
     <div style="font-family:Arial,sans-serif;">

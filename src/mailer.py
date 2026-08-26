@@ -18,7 +18,7 @@ log = logging.getLogger(__name__)
 
 
 def send_daily_summary(
-    subject: str, html_body: str, csv_attachment: str | None = None, csv_filename: str | None = None
+    subject: str, html_body: str, xlsx_attachment: bytes | None = None, xlsx_filename: str | None = None
 ) -> None:
     host = os.environ.get("SMTP_HOST", "smtp.gmail.com")
     port = int(os.environ.get("SMTP_PORT", "465"))
@@ -39,9 +39,11 @@ def send_daily_summary(
 
     msg.attach(MIMEText(html_body, "html", "utf-8"))
 
-    if csv_attachment:
-        attachment = MIMEApplication(csv_attachment.encode("utf-8"), _subtype="csv")
-        attachment.add_header("Content-Disposition", "attachment", filename=csv_filename or "vagas.csv")
+    if xlsx_attachment:
+        attachment = MIMEApplication(
+            xlsx_attachment, _subtype="vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+        )
+        attachment.add_header("Content-Disposition", "attachment", filename=xlsx_filename or "vagas.xlsx")
         msg.attach(attachment)
 
     with smtplib.SMTP_SSL(host, port) as server:

@@ -73,18 +73,18 @@ def run(dry_run: bool) -> None:
     log.info("Classificação concluída: %d vagas, %d de alta adequação.", len(classified), n_alta)
 
     markdown_summary = summarize.build_executive_summary_markdown(classified, run_date)
-    csv_content = summarize.jobs_to_csv(classified)
+    xlsx_content = summarize.jobs_to_xlsx(classified)
 
     results_dir = OUTPUT_DIR / "runs" / run_date_str
     results_dir.mkdir(parents=True, exist_ok=True)
     (results_dir / "resumo.md").write_text(markdown_summary, encoding="utf-8")
-    (results_dir / "vagas.csv").write_text(csv_content, encoding="utf-8")
+    (results_dir / "vagas.xlsx").write_bytes(xlsx_content)
     log.info("Resultados salvos localmente em %s", results_dir)
 
     desktop_dir = DESKTOP_RESULTS_DIR / run_date_str
     desktop_dir.mkdir(parents=True, exist_ok=True)
     (desktop_dir / "resumo.md").write_text(markdown_summary, encoding="utf-8")
-    (desktop_dir / "vagas.csv").write_text(csv_content, encoding="utf-8")
+    (desktop_dir / "vagas.xlsx").write_bytes(xlsx_content)
     log.info("Cópia dos resultados também salva em %s", desktop_dir)
 
     if dry_run:
@@ -96,7 +96,7 @@ def run(dry_run: bool) -> None:
     try:
         import drive
 
-        links = drive.upload_daily_results(markdown_summary, csv_content, run_date_str)
+        links = drive.upload_daily_results(markdown_summary, xlsx_content, run_date_str)
         sheet_link = links.get("planilha")
         log.info("Upload no Drive concluído: %s", links)
     except Exception as exc:  # noqa: BLE001
@@ -111,8 +111,8 @@ def run(dry_run: bool) -> None:
             # A lista completa já está linkada (Google Sheets) — sem anexo.
             mailer.send_daily_summary(subject, email_html)
         else:
-            # Drive falhou: anexa o CSV pra não perder a lista completa.
-            mailer.send_daily_summary(subject, email_html, csv_content, f"vagas-{run_date_str}.csv")
+            # Drive falhou: anexa o XLSX pra não perder a lista completa.
+            mailer.send_daily_summary(subject, email_html, xlsx_content, f"vagas-{run_date_str}.xlsx")
     except Exception as exc:  # noqa: BLE001
         log.error("Falha ao enviar e-mail: %s", exc)
 
