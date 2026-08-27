@@ -117,6 +117,14 @@ marca da empresa contratante, quando conhecida (`COMPANY_ACCENT_COLORS` em
 oficial, pra não chutar). Pra forçar uma cor específica: `--cor "#RRGGBB"`.
 Links saem sempre em azul e sublinhados.
 
+O layout é pensado pra ser bem lido por ATS/scrapers de vagas: sem colunas
+nem texto lado a lado na mesma linha (esse tipo de truque visual costuma
+embaralhar a ordem de leitura automática), e LinkedIn/GitHub aparecem como
+texto literal (`linkedin.com/in/...`), não só como rótulo de link — assim
+uma ferramenta que só lê o texto do PDF (sem seguir links) ainda consegue
+capturar o endereço. Testei extraindo o texto do PDF programaticamente
+(`pypdf`) pra confirmar que a ordem sai limpa antes de fechar essa mudança.
+
 ## Gerar uma carta de apresentação para uma vaga específica
 
 ```bash

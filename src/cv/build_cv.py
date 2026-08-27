@@ -158,9 +158,20 @@ def build_summary(profile: dict, job_text: str) -> str:
         return profile.get("summary", "")
 
 
+def _display_url(url: str) -> str:
+    """URL enxuta pra exibir como texto visível (bom pra ATS/scrapers ler o
+    link mesmo sem clicar) — remove esquema e barra final."""
+    return re.sub(r"^https?://(www\.)?", "", url).rstrip("/")
+
+
 def build_tailored_data(profile: dict, job_text: str, accent_color: str = DEFAULT_ACCENT_COLOR) -> dict:
+    personal = {
+        **profile["personal"],
+        "linkedin_display": _display_url(profile["personal"].get("linkedin", "")),
+        "github_display": _display_url(profile["personal"].get("github", "")),
+    }
     return {
-        "personal": profile["personal"],
+        "personal": personal,
         "accent_color": accent_color,
         "summary": build_summary(profile, job_text),
         "skills_flat": select_skills(profile, job_text),

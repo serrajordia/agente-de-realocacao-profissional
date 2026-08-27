@@ -22,7 +22,7 @@
   #text(size: 11pt, fill: rgb("#333333"))[#data.personal.headline]
 
   #text(size: 9pt)[
-    #data.personal.location #sym.dot.c #data.personal.phone #sym.dot.c #data.personal.email #sym.dot.c #link(data.personal.linkedin)[LinkedIn] #sym.dot.c #link(data.personal.github)[GitHub]
+    #data.personal.location #sym.dot.c #data.personal.phone #sym.dot.c #data.personal.email #sym.dot.c #link(data.personal.linkedin)[#data.personal.linkedin_display] #sym.dot.c #link(data.personal.github)[#data.personal.github_display]
   ]
 ]
 
@@ -37,8 +37,8 @@
 #section[Experiência Profissional]
 
 #for exp in data.experiences [
-  #text(weight: "bold", fill: accent)[#exp.role] --- #text(style: "italic")[#exp.company]
-  #h(1fr) #text(size: 9pt)[#exp.start -- #exp.end #sym.dot.c #exp.location #sym.dot.c #exp.modality]
+  #text(weight: "bold", fill: accent)[#exp.role] --- #text(style: "italic")[#exp.company] \
+  #text(size: 9pt)[#exp.start -- #exp.end #sym.dot.c #exp.location #sym.dot.c #exp.modality]
   #v(0.1em)
   #for bullet in exp.bullets [
     - #bullet
