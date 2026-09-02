@@ -51,6 +51,8 @@ COMPANY_ACCENT_COLORS = {
     "bunge": "#002D6E",
     "klavi": "#0047BB",
     "clara": "#4FA82E",  # verde da marca (#86EA63) escurecido — o original é claro demais para texto legível
+    "stone": "#00A868",  # token "--colors-brand" do site da Stone (o verde neon #00DB00 deles é só para botões)
+    "c6 bank": "#242424",  # preto/cinza-escuro característico da marca
 }
 
 
